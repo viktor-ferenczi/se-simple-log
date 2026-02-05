@@ -7,7 +7,7 @@ Removes the timestamp from the log file names. The game will use only two log fi
 - `%AppData%\SpaceEngineers.log`
 - `%AppData%\VRageRender-DirectX11.log`
 
-As a nice sideeffect, you don't have to clean the log files anymore.
+As a nice side effect, you don't have to clean the log files anymore.
 
 This is mostly useful for developers who have to restart and game frequently and reload the log file after each error.
 
