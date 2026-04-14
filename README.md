@@ -11,6 +11,8 @@ As a nice side effect, you don't have to clean the log files anymore.
 
 This is mostly useful for developers who have to restart the game frequently and reload the log file after each error.
 
+The plugin also adds optional JSONL logging, which is useful for analyzing or storing the logs.
+
 Please consider supporting my work on [Patreon](https://www.patreon.com/semods) or one time via [PayPal](https://www.paypal.com/paypalme/vferenczi/).
 
 *Thank you and enjoy!*
