@@ -9,7 +9,7 @@ Removes the timestamp from the log file names. The game will use only two log fi
 
 As a nice side effect, you don't have to clean the log files anymore.
 
-This is mostly useful for developers who have to restart and game frequently and reload the log file after each error.
+This is mostly useful for developers who have to restart the game frequently and reload the log file after each error.
 
 Please consider supporting my work on [Patreon](https://www.patreon.com/semods) or one time via [PayPal](https://www.paypal.com/paypalme/vferenczi/).
 

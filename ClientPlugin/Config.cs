@@ -11,7 +11,8 @@ public class Config : INotifyPropertyChanged
 {
     #region Options
 
-    private bool jsonl;
+    private bool jsonlFormat;
+    private bool utcTimestamps;
 
     #endregion
 
@@ -19,12 +20,19 @@ public class Config : INotifyPropertyChanged
 
     public readonly string Title = "Config - Simple Log";
 
-    [Separator("Some settings")]
+    [Separator("Log format")]
     [Checkbox(description: "Log in JSONL format (one JSON object on each line)")]
-    public bool Toggle
+    public bool JsonlFormat
     {
-        get => jsonl;
-        set => SetField(ref jsonl, value);
+        get => jsonlFormat;
+        set => SetField(ref jsonlFormat, value);
+    }
+    
+    [Checkbox(description: "Log UTC timestamps (applied only to the JSONL log)")]
+    public bool UtcTimestamps
+    {
+        get => utcTimestamps;
+        set => SetField(ref utcTimestamps, value);
     }
 
     #endregion

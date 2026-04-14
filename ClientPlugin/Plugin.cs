@@ -1,6 +1,8 @@
 ﻿using System.Reflection;
 using ClientPlugin.Settings;
+using ClientPlugin.Settings.Layouts;
 using HarmonyLib;
+using Sandbox.Graphics.GUI;
 using VRage.Plugins;
 
 // Set the assembly version manually if compiled by Pulsar (it won't create what was in AssemblyInfo.cs before)
@@ -31,5 +33,12 @@ public class Plugin : IPlugin
 
     public void Update()
     {
+    }
+    
+    // ReSharper disable once UnusedMember.Global
+    public void OpenConfigDialog()
+    {
+        Instance.settingsGenerator.SetLayout<Simple>();
+        MyGuiSandbox.AddScreen(Instance.settingsGenerator.Dialog);
     }
 }

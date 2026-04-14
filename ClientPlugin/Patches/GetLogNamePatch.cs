@@ -9,7 +9,10 @@ namespace ClientPlugin.Patches;
 [SuppressMessage("ReSharper", "UnusedType.Global")]
 public static class GetLogNamePatch
 {
-    // Replace the log filename to exclude the timestamp
+    private static Config Config => Config.Current;
+
+    // Replace the log filename to exclude the timestamp,
+    // use .jsonl extension if JSONL mode is enabled
     [HarmonyPrefix]
     [HarmonyPatch("GetLogName")]
     [SuppressMessage("ReSharper", "UnusedMember.Global")]
@@ -17,7 +20,7 @@ public static class GetLogNamePatch
     public static bool GetLogNamePrefix(string appName, ref StringBuilder __result)
     {
         __result = new StringBuilder(appName);
-        __result.Append(".log");
+        __result.Append(Config.JsonlFormat ? ".jsonl" : ".log");
         return false;
     }
 }
