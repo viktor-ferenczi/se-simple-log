@@ -11,6 +11,7 @@ public class Config : INotifyPropertyChanged
 {
     #region Options
 
+    private bool removeTimestamp = true;
     private bool jsonlFormat;
     private bool utcTimestamps;
 
@@ -19,6 +20,14 @@ public class Config : INotifyPropertyChanged
     #region User interface
 
     public readonly string Title = "Config - Simple Log";
+
+    [Separator("Log filename")]
+    [Checkbox(description: "Remove the timestamp from the log filename")]
+    public bool RemoveTimestamp
+    {
+        get => removeTimestamp;
+        set => SetField(ref removeTimestamp, value);
+    }
 
     [Separator("Log format")]
     [Checkbox(description: "Log in JSONL format (one JSON object on each line)")]

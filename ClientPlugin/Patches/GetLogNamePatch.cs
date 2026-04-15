@@ -11,16 +11,23 @@ public static class GetLogNamePatch
 {
     private static Config Config => Config.Current;
 
-    // Replace the log filename to exclude the timestamp,
-    // use .jsonl extension if JSONL mode is enabled
-    [HarmonyPrefix]
+    // Let the original GetLogName run, then modify the result:
+    // - Remove the timestamp from the filename if configured
+    // - Change the extension to .jsonl if configured
+    [HarmonyPostfix]
     [HarmonyPatch("GetLogName")]
     [SuppressMessage("ReSharper", "UnusedMember.Global")]
     [SuppressMessage("ReSharper", "InconsistentNaming")]
-    public static bool GetLogNamePrefix(string appName, ref StringBuilder __result)
+    public static void GetLogNamePostfix(string appName, ref StringBuilder __result)
     {
-        __result = new StringBuilder(appName);
-        __result.Append(Config.JsonlFormat ? ".jsonl" : ".log");
-        return false;
+        var name = __result.ToString();
+
+        if (Config.RemoveTimestamp)
+            name = appName + ".log";
+
+        if (Config.JsonlFormat)
+            name = name.Substring(0, name.Length - 4) + ".jsonl";
+
+        __result = new StringBuilder(name);
     }
 }
