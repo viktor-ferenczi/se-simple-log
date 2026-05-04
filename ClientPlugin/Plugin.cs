@@ -5,8 +5,8 @@ using VRage.Plugins;
 
 // Set the assembly version manually if compiled by Pulsar (it won't create what was in AssemblyInfo.cs before)
 #if !DEV_BUILD
-[assembly: System.Reflection.AssemblyVersion("1.1.1.0")]
-[assembly: System.Reflection.AssemblyFileVersion("1.1.1.0")]
+[assembly: System.Reflection.AssemblyVersion("1.1.2.0")]
+[assembly: System.Reflection.AssemblyFileVersion("1.1.2.0")]
 #endif
 
 namespace ClientPlugin;
