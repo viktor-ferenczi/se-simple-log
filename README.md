@@ -33,6 +33,15 @@ Just enable the plugin in [Pulsar](https://github.com/StarCpt/Pulsar-Installer/r
 3. In the **Plugins** menu add the **Simple Log** plugin
 4. Apply and restart the game as requested
 
+## Development
+
+Based on the [client plugin template](https://github.com/CometWorks/client-plugin-template).
+Run `setup.py` once to detect the game folder, then build the solution. Load the working copy
+through a Pulsar development folder: start Pulsar with `-sources` and add the repository with
+the Sources button. Builds deploy into Pulsar's `Local` plugin folder only if `Pulsar` is set
+in `Directory.Build.props.user` or passed as `-p:Pulsar=...`, see the template's README for
+the details.
+
 ## Legal
 
 Space Engineers is a trademark of Keen Software House s.r.o.
